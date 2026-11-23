@@ -1,0 +1,10 @@
+# Build files
+**/bin/
+**/obj/
+
+# Local database credentials
+**/appsettings.Development.json
+
+# IDE files
+.idea/
+.vs/
