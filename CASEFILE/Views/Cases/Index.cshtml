@@ -1,0 +1,81 @@
+
+@model IEnumerable<CASEFILE.Models.Case>
+
+@{
+    ViewData["Title"] = "Cases";
+}
+
+<div class="dashboard">
+    <section class="dashboard-heading">
+        <div>
+            <span class="eyebrow">WORKSPACE / CASE MANAGEMENT</span>
+            <h1>Investigations</h1>
+            <p>Manage and review registered investigations.</p>
+        </div>
+        <div class="dashboard-date">
+            <span class="date-label">TOTAL INVESTIGATIONS</span>
+            <strong>@Model.Count() registered cases</strong>
+        </div>
+    </section>
+
+    <section class="dashboard-panel">
+        <div class="panel-heading">
+            <div>
+                <span class="eyebrow">CASE REGISTRY</span>
+                <h2>All investigations</h2>
+            </div>
+
+            <a asp-controller="Cases"
+               asp-action="Create"
+               class="btn btn-primary">
+                + Register case
+            </a>
+        </div>
+
+        @if (!Model.Any())
+        {
+            <p style="color: var(--cf-muted); padding: 20px 0;">
+                No investigations have been registered yet.
+            </p>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="case-table">
+                    <thead>
+                        <tr>
+                            <th>REFERENCE</th>
+                            <th>INVESTIGATION</th>
+                            <th>STATUS</th>
+                            <th>CREATED</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="case-reference">
+                                    <a asp-action="Details" asp-route-id="@item.Id">
+                                        @item.ReferenceNumber
+                                    </a>
+                                </td>
+                                <td>
+                                    <a asp-action="Details" asp-route-id="@item.Id">
+                                        <strong>@item.Title</strong>
+                                    </a>
+                                    <span class="table-subtitle">
+                                        @item.Description
+                                    </span>
+                                </td>
+                                <td>@item.Status</td>
+                                <td class="table-date">
+                                    @item.CreatedAt.ToString("dd MMM yyyy")
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </section>
+</div>

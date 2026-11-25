@@ -1,0 +1,65 @@
+
+@model CASEFILE.Models.Case
+
+@{
+    ViewData["Title"] = "Create Case";
+}
+
+<div class="dashboard">
+    <section class="dashboard-heading">
+        <div>
+            <span class="eyebrow">WORKSPACE / CASE MANAGEMENT</span>
+            <h1>Register investigation</h1>
+            <p>Create a new investigation record.</p>
+        </div>
+        <a asp-action="Index" class="btn btn-outline-secondary">Back to cases</a>
+    </section>
+
+    <section class="dashboard-panel">
+        <div class="panel-heading">
+            <div>
+                <span class="eyebrow">NEW RECORD</span>
+                <h2>Investigation details</h2>
+            </div>
+        </div>
+
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="ReferenceNumber" class="form-label">Reference number</label>
+                <input asp-for="ReferenceNumber" class="form-control" placeholder="e.g. CF-2026-001" />
+                <span asp-validation-for="ReferenceNumber" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Title" class="form-label">Investigation title</label>
+                <input asp-for="Title" class="form-control" placeholder="Enter investigation title" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label">Description</label>
+                <textarea asp-for="Description" class="form-control" rows="4" placeholder="Describe the investigation"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Status" class="form-label">Status</label>
+                <select asp-for="Status" class="form-select">
+                    <option value="Open">Open</option>
+                    <option value="Under Investigation">Under Investigation</option>
+                    <option value="Pending Review">Pending Review</option>
+                    <option value="Closed">Closed</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Register investigation</button>
+        </form>
+    </section>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

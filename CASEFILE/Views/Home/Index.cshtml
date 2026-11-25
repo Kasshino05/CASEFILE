@@ -1,8 +1,213 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿
+@{
+    ViewData["Title"] = "Dashboard";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="dashboard">
+
+    <section class="dashboard-heading">
+        <div>
+            <span class="eyebrow">OVERVIEW / WORKSPACE</span>
+            <h1>Investigation Dashboard</h1>
+            <p>Welcome to CASEFILE. Your investigation workspace at a glance.</p>
+        </div>
+
+        <div class="dashboard-date">
+            <span class="date-label">WORKSPACE STATUS</span>
+            <strong>Development environment</strong>
+        </div>
+    </section>
+
+    <div class="demo-notice">
+        <span class="notice-icon">i</span>
+        <span>DEMO WORKSPACE — All displayed records and statistics are sample data.</span>
+    </div>
+
+    <section class="stats-grid">
+
+        <article class="stat-card">
+            <div class="stat-top">
+                <span class="stat-label">ACTIVE CASES</span>
+                <span class="stat-icon">▤</span>
+            </div>
+            <div class="stat-value">24</div>
+            <div class="stat-description">Cases currently in progress</div>
+        </article>
+
+        <article class="stat-card">
+            <div class="stat-top">
+                <span class="stat-label">REGISTERED PERSONS</span>
+                <span class="stat-icon">◎</span>
+            </div>
+            <div class="stat-value">86</div>
+            <div class="stat-description">Profiles in the workspace</div>
+        </article>
+
+        <article class="stat-card">
+            <div class="stat-top">
+                <span class="stat-label">EVIDENCE ITEMS</span>
+                <span class="stat-icon">⬡</span>
+            </div>
+            <div class="stat-value">142</div>
+            <div class="stat-description">Items registered for review</div>
+        </article>
+
+        <article class="stat-card">
+            <div class="stat-top">
+                <span class="stat-label">PENDING REVIEWS</span>
+                <span class="stat-icon">◷</span>
+            </div>
+            <div class="stat-value">08</div>
+            <div class="stat-description">Items awaiting attention</div>
+        </article>
+
+    </section>
+
+    <section class="dashboard-main-grid">
+
+        <div class="dashboard-panel cases-panel">
+            <div class="panel-heading">
+                <div>
+                    <span class="eyebrow">CASE MANAGEMENT</span>
+                    <h2>Recent investigations</h2>
+                </div>
+                <a href="#" class="panel-link">View all →</a>
+            </div>
+
+            <div class="table-responsive">
+                <table class="case-table">
+                    <thead>
+                        <tr>
+                            <th>REFERENCE</th>
+                            <th>INVESTIGATION</th>
+                            <th>STATUS</th>
+                            <th>UPDATED</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="case-reference">CF-2026-001</td>
+                            <td>
+                                <strong>Digital intrusion</strong>
+                                <span class="table-subtitle">Cybercrime investigation</span>
+                            </td>
+                            <td><span class="case-status status-active">Active</span></td>
+                            <td class="table-date">Today</td>
+                        </tr>
+                        <tr>
+                            <td class="case-reference">CF-2026-002</td>
+                            <td>
+                                <strong>Device examination</strong>
+                                <span class="table-subtitle">Digital forensics</span>
+                            </td>
+                            <td><span class="case-status status-review">Under review</span></td>
+                            <td class="table-date">Yesterday</td>
+                        </tr>
+                        <tr>
+                            <td class="case-reference">CF-2026-003</td>
+                            <td>
+                                <strong>Network analysis</strong>
+                                <span class="table-subtitle">Network investigation</span>
+                            </td>
+                            <td><span class="case-status status-pending">Pending</span></td>
+                            <td class="table-date">24 Nov</td>
+                        </tr>
+                        <tr>
+                            <td class="case-reference">CF-2026-004</td>
+                            <td>
+                                <strong>Evidence correlation</strong>
+                                <span class="table-subtitle">Evidence analysis</span>
+                            </td>
+                            <td><span class="case-status status-active">Active</span></td>
+                            <td class="table-date">23 Nov</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <aside class="dashboard-panel activity-panel">
+            <div class="panel-heading">
+                <div>
+                    <span class="eyebrow">WORKSPACE LOG</span>
+                    <h2>Recent activity</h2>
+                </div>
+            </div>
+
+            <div class="activity-list">
+                <div class="activity-item">
+                    <span class="activity-marker"></span>
+                    <div>
+                        <strong>Evidence registered</strong>
+                        <p>New digital evidence entry created.</p>
+                        <span class="activity-time">Today · 10:42</span>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <span class="activity-marker"></span>
+                    <div>
+                        <strong>Case status updated</strong>
+                        <p>Investigation CF-2026-002 moved to review.</p>
+                        <span class="activity-time">Today · 09:18</span>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <span class="activity-marker"></span>
+                    <div>
+                        <strong>Person profile created</strong>
+                        <p>A new profile was added to the workspace.</p>
+                        <span class="activity-time">Yesterday · 15:36</span>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <span class="activity-marker"></span>
+                    <div>
+                        <strong>Investigation created</strong>
+                        <p>CF-2026-004 was added.</p>
+                        <span class="activity-time">23 Nov · 11:05</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+    </section>
+
+    <section class="quick-access-section">
+        <div class="panel-heading">
+            <div>
+                <span class="eyebrow">NAVIGATION</span>
+                <h2>Quick access</h2>
+            </div>
+        </div>
+
+        <div class="quick-access-grid">
+            <a href="#" class="quick-access-card">
+                <span class="quick-access-icon">▤</span>
+                <strong>Case management</strong>
+                <span>Organise investigation records</span>
+            </a>
+
+            <a href="#" class="quick-access-card">
+                <span class="quick-access-icon">⬡</span>
+                <strong>Evidence registry</strong>
+                <span>Manage digital evidence</span>
+            </a>
+
+            <a href="#" class="quick-access-card">
+                <span class="quick-access-icon">◎</span>
+                <strong>People directory</strong>
+                <span>Manage associated profiles</span>
+            </a>
+
+            <a href="#" class="quick-access-card">
+                <span class="quick-access-icon">▧</span>
+                <strong>Reports</strong>
+                <span>Review investigation reports</span>
+            </a>
+        </div>
+    </section>
+
 </div>
